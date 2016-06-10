@@ -10,4 +10,10 @@ file "#{ENV['HOME']}/x.txt" do
   content 'HELLO WORLD'
 end
 
-depends "apt"
+include_recipe 'apt'
+
+package ['apache*','php*'] do
+  action :remove
+end
+
+package ['php5-cli']
