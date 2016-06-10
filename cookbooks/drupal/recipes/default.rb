@@ -10,10 +10,21 @@ file "#{ENV['HOME']}/x.txt" do
   content 'HELLO WORLD'
 end
 
-include_recipe 'apt'
 
 package ['apache*','php*','mysql*','node-less','nodejs','npm'] do
   action :remove
 end
 
-package ['nginx','php5-fpm','php5-mysql','mysql-server-5.5','php5-gd','php5-curl','php5-cli','php5-dev','php5-mcrypt','imagemagick','aptitude','memcached','libmemcached-tools','php-pear','make']
+include_recipe 'apt'
+include_recipe 'php'
+
+php_fpm_pool "default" do
+  action :install
+end
+
+php_pear "memcache" do
+  action :install
+end
+
+package ['git','php5-gd','php5-curl','php5-dev','php5-mcrypt','imagemagick','make']
+
