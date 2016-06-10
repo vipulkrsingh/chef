@@ -82,11 +82,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
 
-  config.vm.provision :chef_solo do |chef|
-    # chef.version = "12.9.40"
-    chef.cookbooks_path = "cookbooks"
-    chef.add_recipe "drupal"
-  end
+  # config.vm.provision :chef_solo do |chef|
+  #   # chef.version = "12.9.40"
+  #   chef.cookbooks_path = "cookbooks"
+  #   chef.add_recipe "drupal"
+  # end
 
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
